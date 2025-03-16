@@ -116,7 +116,7 @@ const getWeatherDetails = (cityName, lat, lon) => {
     });
 }
 
-// Other functions remain unchanged (geolocation, saving city, etc.)
+
 // Function to get coordinates of the city
 const getCityCoordinates = () => {
     const cityName = cityInput.value.trim(); // Get user entered city name and remove extra spaces
