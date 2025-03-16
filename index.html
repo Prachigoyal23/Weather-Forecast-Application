@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Weather Forecast Application</title>
+    <link rel="stylesheet" href="src/output.css">
+    <script src="app.js" defer></script>
+  </head>
+
+  <style>
+    *{
+    box-sizing: border-box;
+    font-family: 'Open-Sans', 'Sans-Serif';
+}
+  </style>
+
+  <body class="bg-cover bg-no-repeat" style="background-image: url('https://static.vecteezy.com/system/resources/thumbnails/016/048/315/large/sunny-spells-through-forming-clouds-on-evening-sky-time-lapse-background-climate-change-weather-forecast-copy-space-stormy-clouds-form-in-the-sunny-skies-concept-video.jpg');">
+    
+    <h1 class=" text-white py-1 text-3xl font-bold text-center" style="background-color: #3182ce;">Weather Dashboard</h1>
+
+    <div class="container flex gap-8 p-8">
+      
+      <div class="weather-input w-full sm:w-1/2 lg:w-1/3 xl:w-1/4">
+        <h3 class="font-semibold mb-2 text-lg">Enter a city name</h3>
+        <input class="city-input w-full h-8 p-3 mb-4 mr-100 border border-gray-300 rounded-md text-lg" type="text" placeholder="E.g., New York, London, Tokyo">
+        <button class="search-btn w-full py-2 mb-1.5 bg-blue-600 text-white rounded-md">Search</button>
+
+        <div class="separator h-px bg-gray-300 my-4 flex items-center justify-center relative">
+          <span class="absolute bg-white px-4 text-gray-500">or</span>
+        </div>
+
+        <button class="location-btn w-full py-2 mt-1.5 bg-gray-600 text-white rounded-md">Use Current Location</button>
+        
+        <div class="dropdown-container relative w-full mt-5">
+          <select class="dropdown-menu w-full p-3 border border-blue-500 rounded-md text-lg focus:ring-2 focus:ring-blue-500" style="display:none"></select>
+        </div>
+        
+      </div>
+      
+      <div class="weather-data w-full">
+        <div class="current-weather text-black pt-5 pr-[70px] pb-5 pl-5 rounded-lg flex justify-between mt-5">
+          <div>
+            <h2 class="font-medium text-2xl">_______ (_______)</h2>
+            <h3 class="text-lg">Time: __ __ __</h3>
+            <h4 class="mt-2 text-base font-medium">Temp: __°C</h4>
+            <h4 class="text-base font-medium">Wind: __ M/S</h4>
+            <h4 class="text-base font-medium">Humidity: __%</h4>
+          </div>
+
+          <div class="icon text-center">
+            <img class="max-w-[120px] mx-auto my-2">
+            <h4 class="text-sm text-gray-600 capitalize"></h4>
+          </div>
+        </div>
+
+        <div class="days-forecast text-lg text-center">
+          <h2 class="text-2xl mt-8 mb-5 font-bold text-center">5-Day Forecast</h2>
+          <ul class="weather-cards gap-4 p-8 flex mt-6">
+            <li class="card list-none p-4 text-black rounded-lg w-1/5">
+              <h2 class="font-bold">_______</h2>
+              <h3>Time: __ __ __</h3>
+              <h4>Temp: __°C</h4>
+              <h4>Wind: __ M/S</h4>
+              <h4>Humidity: __%</h4>
+            </li>
+            <li class="card list-none text-black p-4 rounded-lg w-1/5">
+              <h2 class="font-bold">_______</h2>
+              <h3>Time: __ __ __</h3>
+              <h4>Temp: __°C</h4>
+              <h4>Wind: __ M/S</h4>
+              <h4>Humidity: __%</h4>
+            </li>
+            <li class="card list-none text-black p-4 rounded-lg w-1/5">
+              <h2 class="font-bold">_______</h2>
+              <h3>Time: __ __ __</h3>
+              <h4>Temp: __°C</h4>
+              <h4>Wind: __ M/S</h4>
+              <h4>Humidity: __%</h4>
+            </li>
+            <li class="card list-none text-black p-4 rounded-lg w-1/5">
+              <h2 class="font-bold">_______</h2>
+              <h3>Time: __ __ __</h3>
+              <h4>Temp: __°C</h4>
+              <h4>Wind: __ M/S</h4>
+              <h4>Humidity: __%</h4>
+            </li>
+            <li class="card list-none text-black p-4 rounded-lg w-1/5">
+              <h2 class="font-bold">_______</h2>
+              <h3>Time: __ __ __</h3>
+              <h4>Temp: __°C</h4>
+              <h4>Wind: __ M/S</h4>
+              <h4>Humidity: __%</h4>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+     <!-- Footer -->
+    <footer class="bg-gray-800 text-white text-center py-4 mt-20">
+      <p>&copy; Weather Forecast Application. All rights reserved.</p>
+  </footer>
+
+  <style>
+    @media (max-width: 1400px){
+        .weather-data .current-weather{
+            padding: 20px;
+        }
+        .weather-cards{
+            flex-wrap: wrap;
+        }
+        .weather-cards .card{
+            width: calc(100% / 4 - 15px);
+        }
+    }
+    @media (max-width: 1200px){
+        .weather-cards .card{
+            width: calc(100% / 3 - 15px);
+        }
+    }
+    @media (max-width: 950px){
+        .weather-input{
+            width: 450px;
+        }
+        .weather-cards .card{
+            width: calc(100%/2 - 10px);
+        }
+    }
+    @media (max-width: 750px){
+        .container {
+            flex-wrap: wrap;
+            padding: 15px;
+        }
+        .weather-input{
+            width: 100%;
+        }
+    }
+</style>
+
+  </body>
+</html>
