@@ -50,17 +50,19 @@ const createWeatherCard = (cityName, weatherItem, index) => {
 
     // Get the fixed time (5 minutes or 1 hour ago) for all forecast entries
     const currentTime = new Date();
-    const fixedTime = new Date(currentTime.getTime());
 
+    // Convert to IST
+    const ISTOffset = 5.5 * 60;
+    const localTime = new Date(currentTime.getTime() + (ISTOffset * 60 * 1000));
 
-    const fixedTimeString = fixedTime.toISOString().split('T')[1].split('.')[0]; // Extract HH:MM:SS
+    const fixedTimeString = localTime.toISOString().split('T')[1].split('.')[0]; // Extract HH:MM:SS
    
 
     if (index === 0) {
         // Main weather card
         return `<div class="details" style="${backgroundStyle}">
                     <h2>${cityName} (${weatherItem.dt_txt.split(" ")[0]})</h2>
-                    <h4>Time: ${fixedTimeString}</h4> <!-- Use fixed time -->
+                    <h4>Time: ${fixedTimeString} (IST)</h4> <!-- Use fixed time -->
                     <h4>Temperature: ${(weatherItem.main.temp - 273.15).toFixed(2)}°C</h4>
                     <h4>Wind: ${weatherItem.wind.speed} M/S</h4>
                     <h4>Humidity: ${weatherItem.main.humidity}%</h4>
@@ -73,7 +75,7 @@ const createWeatherCard = (cityName, weatherItem, index) => {
         // Forecast weather cards
         return ` <li class="card" style="${backgroundStyle}">
                      <h2>(${weatherItem.dt_txt.split(" ")[0]})</h2>
-                     <h4>Time: ${fixedTimeString}</h4> <!-- Use fixed time -->
+                     <h4>Time: ${fixedTimeString} (IST)</h4> <!-- Use fixed time -->
                      <img src="${weatherIcon}" alt="weather-icon">
                      <h4>Temp: ${(weatherItem.main.temp - 273.15).toFixed(2)}°C</h4>
                      <h4>Wind: ${weatherItem.wind.speed} M/S</h4>
